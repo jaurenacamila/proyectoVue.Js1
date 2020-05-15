@@ -90,8 +90,8 @@
                 eius? Esse ea atque dolor tenetur sapiente quam hic suscipit odit, itaque recusandae sint eum 
                 vitae incidunt.
             </p>
-            <hr>
 
+            <hr>
             <!--------------------------------------------->
             <!--------------------------------------------->
             <h4><u>v-for</u></h4>
@@ -111,6 +111,7 @@
             </ul>
             <hr>
 
+            <button class="btn btn-warning my-3" @click="agregarAlumno()">Agregar alumno</button>
             <div v-if="alumnos.length">
                 <table class="table">
                     <tr class="bg-success text-white">
@@ -133,8 +134,20 @@
                     </tr>
                 </table>
                 <div class="alert-info">
-                    {{ calcularAlumnosEnCurso.cantidad }} alumnos hicieron el curso, de un total 
-                    de un total de {{ calcularAlumnosEnCurso.total }}
+                    <!--Mensaje ninguno hizo el curso-->
+                    <div v-if="calcularAlumnosEnCurso.cantidad == 0">
+                        Ningún alumno hizo el curso
+                    </div>
+                    <!--Mensaje todos hicieron el curso-->
+                    <div v-else-if="calcularAlumnosEnCurso.cantidad == calcularAlumnosEnCurso.total">
+                        Todos los alumnos hicieron el curso
+                    </div>
+                    <!--Mensaje de cuantos hicieron el curso-->
+                    <div v-else>
+                        {{ calcularAlumnosEnCurso.cantidad }} {{ calcularAlumnosEnCurso.cantidad==1? 
+                        'alumno hizo' : 'alumnos hicieron' }} el curso,de un total de un total de 
+                        {{ calcularAlumnosEnCurso.total }}
+                    </div>
                 </div>
             </div>
             <div v-else class="alert alert-danger">
@@ -152,9 +165,41 @@
                     Hizo el curso <input type="checkbox" v-model="alumno.curso">
                     <button class="btn btn-danger mx-3" @click="borrar(index)">X</button>
                 </div>
+            </div>
+
+            <hr>
+            <!--------------------------------------------->
+            <!--------------------------------------------->
+            <h4><u>v-if / v-else-if / v-else</u></h4>
+            <br>
+            <input type="text" v-model="nombre">><br>
+            <div class="btn btn-success mt-3">
+                <div v-if="nombre == 'Juan'">
+                    Bienvenido {{ nombre }}
+                </div>
+                <div v-else-if="nombre == 'Juana'">
+                    Bienvenido {{ nombre }}
+                </div>
+                <div v-else>
+                    Bienvenido!
+                </div>
+            </div>
+
+            <hr>
+            <!--------------------------------------------->
+            <!--------------------------------------------->
+            <h4><u>:style</u></h4>
+            <br>
+            <button class="btn btn-success my-3" @click="estado1=!estado1">Cambiar</button>
+            <p :style="{color: 'white', backgroundColor: estado1? 'green' : 'red', borderRadious: '10 px', padding: '10 px'}">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officia reiciendis, 
+                praesentium natus totam suscipit delectus harum, vero quam numquam obcaecati sapiente nam 
+                ducimus cumque, sed vel! Debitis, rem quidem!
+            </p>
 
 
         </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

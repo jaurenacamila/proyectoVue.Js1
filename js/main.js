@@ -13,6 +13,9 @@ var app = new Vue({
       contador3:456,
       mostrar: true,
       mostrar2: true,
+      nombre: '',
+      estado1: true,
+      estado2: true,
       usuarios: [
           'Juan',
           'Pedro',
@@ -51,6 +54,12 @@ var app = new Vue({
         },
         borrar(index){
             this.alumnos.splice(index,1)
+        },
+        agregarAlumno(){
+            var alumno = {nombre: 'Marina', apellido: 'Moreno', edad: 40, curso: false, 
+            foto: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/5_avatar-512.png'}
+
+            this.alumnos.push(alumno)
         }
     },
    
