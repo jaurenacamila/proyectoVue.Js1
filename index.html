@@ -197,6 +197,29 @@
                 ducimus cumque, sed vel! Debitis, rem quidem!
             </p>
 
+            
+            <hr>
+            <!--------------------------------------------->
+            <!--------------------------------------------->
+            <h4><u>:class</u></h4>
+            <br>
+            <button class="btn btn-success my-3" @click="estado2=!estado2">Cambiar</button>
+            <p :class="['text-white', {'bg-success': estado2, 'bg-danger' : !estado2}]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officia reiciendis, 
+                praesentium natus totam suscipit delectus harum, vero quam numquam obcaecati sapiente nam 
+                ducimus cumque, sed vel! Debitis, rem quidem!
+
+            </p>
+
+            <hr>
+            <!--------------------------------------------->
+            <!--------------------------------------------->
+            <h4><u>Componentes</u></h4>
+            <br>
+            <contador init="123" boton="danger"></contador>
+            <contador init="456" boton="warning"></contador>
+            <contador init="789" boton="success"></contador>
+
 
         </div>
 

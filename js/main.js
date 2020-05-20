@@ -1,3 +1,24 @@
+Vue.component('contador',{
+    data(){
+        return {
+            contador: this.init
+        }
+    },
+    props:['init', 'boton'],
+    methods:{
+        contar(){
+            this.contador++
+        }
+    },
+    template: 
+    `
+        <div>
+            <button class= "btn btn-danger my-2" @click="contar()">Contar {{ contador }}</button>
+        </div>
+
+    `
+}) 
+
 var app = new Vue({
    
     el: '#app',
